@@ -23,7 +23,7 @@ export default function Content(){
     const getalltasks=async()=>{
         await axios.get("/api/v1").then((res)=>{
             let data=res.data
-            console.log(data)
+            
             const newarr=data.map((item)=>{
                 return <TaskBox task={item.name} id={item._id}/>
             })
