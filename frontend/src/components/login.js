@@ -27,7 +27,7 @@ export default function Login(){
                 Task Manager
             </div>
             <div className="container mt-3" style={{"fontFamily":"'Bebas Neue'"}}>
-                <div className="text-center fs-3">Login</div>
+                <div className="text-center h2">Login</div>
                 <div className='text-center'>
                     <form className='container my-3' onSubmit={handleSubmit}>
                         <input type="email" className='form-control my-3 fs-6' id="email" placeholder='Email'
