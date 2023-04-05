@@ -15,6 +15,7 @@ export default function TaskBox(prop){
     const handledelete=async()=>{
         await axios.delete(`/api/v1/${prop.id}`)
         .then(
+            prop.func()
             // console.log(`deleted ${prop.id}`)
         )  
     }
@@ -27,6 +28,7 @@ export default function TaskBox(prop){
         .then(
             ()=>{
                 handledit()
+                prop.func()
                 // console.log(`edited ${prop.id}`)
             }
         )
@@ -48,11 +50,11 @@ export default function TaskBox(prop){
                     </form>}
             </div>
             <div className="container w-25">
-                <button onClick={handledelete} className="border border-2 border-success btn btn-outline-success btn-sm p-3">✔</button>
+                <button onClick={handledelete} className="border border-2 border-success btn btn-outline-success btn-sm p-3" style={{"width":"55px"}}>✔</button>
                 {!editStage &&
-                <button onClick={handledit} className="border border-2 border-danger btn btn-outline-danger btn-sm p-3">✍</button>}
+                <button onClick={handledit} className="border border-2 border-danger btn btn-outline-danger btn-sm p-3" style={{"width":"55px"}}>✍</button>}
                 {editStage &&
-                <button onClick={handledit} className="border border-2 border-danger btn btn-outline-danger btn-sm p-3">❌</button>}
+                <button onClick={handledit} className="border border-2 border-danger btn btn-outline-danger btn-sm p-3" style={{"width":"55px"}}>❌</button>}
             </div>
         </div>
     )
