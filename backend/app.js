@@ -14,17 +14,6 @@ app.use(bodyParser.urlencoded())
 app.use(express.json())
 app.use(cors())
 
-//for the aws server
-const path= require('path')
-const _dirname=path.dirname("")
-const buildPath=path.join(_dirname , "../frontend/build")
-app.use(express.static(buildPath))
-
-app.get("/TM/*", (req,res)=>{
-    res.sendFile(
-        path.resolve("../frontend/build/index.html")
-    )
-})
 //dont mind this
 
 app.use('/api/',tasks)
