@@ -24,7 +24,7 @@ export default function TaskBox(prop){
     }
     const handleSubmit=async(e)=>{
         e.preventDefault()
-        await axios.patch(`/api/v1/${prop.id}`,{"_id":prop.id,"name":editask})
+        await axios.patch(`https://task-manager-pw0j.onrender.com/api/v1/${prop.id}`,{"_id":prop.id,"name":editask})
         .then(
             ()=>{
                 handledit()

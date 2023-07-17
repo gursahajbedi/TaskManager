@@ -48,12 +48,12 @@ export default function Content(){
 
     const handleSubmit=async(e)=>{
         e.preventDefault()
-        await axios.post("/api/v1/",{"name":Task})
+        await axios.post("https://task-manager-pw0j.onrender.com/api/v1/",{"name":Task})
         getalltasks()
     }
     const handleSubmitBtn=async(e)=>{
         e.preventDefault()
-        await axios.post("/api/v1/",{"name":Task})
+        await axios.post("https://task-manager-pw0j.onrender.com/api/v1/",{"name":Task})
         getalltasks()
     }
     
