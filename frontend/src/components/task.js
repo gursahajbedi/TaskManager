@@ -13,7 +13,7 @@ export default function TaskBox(prop){
     
     
     const handledelete=async()=>{
-        await axios.delete(`/api/v1/${prop.id}`)
+        await axios.delete(`https://task-manager-pw0j.onrender.com/api/v1/${prop.id}`)
         .then(
             prop.func()
             // console.log(`deleted ${prop.id}`)
