@@ -27,7 +27,7 @@ export default function Content(){
     })
 
     const getalltasks=async()=>{
-        await axios.get("/api/v1").then((res)=>{
+        await axios.get("https://task-manager-pw0j.onrender.com/api/v1").then((res)=>{
             let data=res.data
             
             const newarr=data.map((item)=>{
