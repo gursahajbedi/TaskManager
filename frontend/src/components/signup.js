@@ -8,7 +8,7 @@ export default function Login(){
     const [email,setemail]=useState()
     const [password,setpassword]=useState()
     const [username, setusername]=useState()
-    const {signup,err}=useSignup()
+    const {signup,err,isloading}=useSignup()
     
 
     function handleSubmit(e){
@@ -28,7 +28,7 @@ export default function Login(){
             <div className="bg-dark text-light display-5 fw-bold p-2 border-5 border-bottom border-danger container pb-4 mb-4 text-center">
                 <div className="display-2">Task Manager</div>
             </div>
-            <div className="container mt-3" style={{"fontFamily":"'Poppins'"}}>
+            {!isloading ? (<div className="container mt-3" style={{"fontFamily":"'Poppins'"}}>
                 <div className="text-center display-4">Signup</div>
                 <div className='text-center'>
                     <form className='container my-3' onSubmit={handleSubmit} >
@@ -43,9 +43,12 @@ export default function Login(){
                     </form>
                     <div className="h2 my-2">Already Have An Account?</div>
                     <NavLink className="h3 text-decoration-none text-light border-bottom border-danger border-5" to={"/TM/login"}>Login here</NavLink>
-                    
                 </div>
-            </div>
+            </div>):(
+                <div className=" mt-5 container spinner-border text-light" style={{'height':'80px','width':'80px'}} role="status">
+                    <span className="sr-only"></span>
+                </div>
+            )}
         </div>
     )
 }

@@ -7,8 +7,10 @@ export default function useSignup(){
     
     const {dispatch}=useAuthContext()
     const [err,seterr]=useState('')
+    const [isloading,setloading]=useState(false)
 
     async function signup(email,password,username){
+        setloading(true)
         const body={"email":email,"password":password,"username":username}
         const res=await axios.post("https://task-manager-pw0j.onrender.com/auth/signup",body).then((res)=>{return res}).catch((res)=>{return res})
         if(res.status===200){
@@ -20,6 +22,7 @@ export default function useSignup(){
         else{
             seterr(res.response.data.err)
         }
+        setloading(false)
     }
-    return {signup,err}
+    return {signup,err,isloading}
 }
