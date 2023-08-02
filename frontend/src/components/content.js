@@ -4,6 +4,7 @@ import TaskBox from "./task"
 import useAuthContext from "../context/useAuthContext"
 import { useLogout } from "../hooks/useLogout"
 import WebFont from "webfontloader"
+import "./content.css"
 
 export default function Content(){
     //Saving the tasks in variables
@@ -21,7 +22,7 @@ export default function Content(){
         getalltasks()
         WebFont.load({
             google:{
-                families:['Bebas Neue']
+                families:['Poppins']
             }
         })
     })
@@ -59,12 +60,28 @@ export default function Content(){
     
     
     return(
-        <div className="container-fluid text-light" style={{"fontFamily":"'Bebas Neue'"}}>
-            <div className="d-flex justify-content-between mb-5">
-                <div className="rounded-2 btn btn-success" style={{"fontSize":"28px"}}>Logged in as @{user.username}</div>
-                <div className="btn btn-danger" style={{"fontSize":"28px"}} onClick={handleClick}>Logout</div>
+        <div className="container-fluid text-light mt-5" style={{"fontFamily":"'Poppins'"}}>
+            <div className="mb-5 pb-5">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                         <h1 className="text-dark p-2 mt-2">Task Manager</h1>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <div className="text-dark container-fluid mt-2"><h4>Logged in as @{user.username}</h4></div>
+                                </li>
+                                <li>
+                                    <div className="text-dark container-fluid mt-2" onClick={handleClick}><h4>Logout</h4></div>                
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </nav>
             </div>
-            <div className="d-flex flex-column justify-content-center align-items-center text-center" style={{"minHeight":"110vh"}}>
+            <div className="d-flex flex-column align-items-center text-center">
                 <form onSubmit={handleSubmit}>
                     <div className="border-bottom border-danger">
                         <div className="display-1">Task Manager</div>
